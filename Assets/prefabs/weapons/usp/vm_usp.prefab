@@ -1,0 +1,66 @@
+{
+  "RootObject": {
+    "__guid": "66f398ce-81c1-4a36-bad1-b0f86993a060",
+    "Flags": 0,
+    "Name": "vm_usp",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "GeneralGame.ViewModel",
+        "__guid": "6a29676e-a692-4dc6-9514-7a56e200fa58",
+        "ModelRenderer": {
+          "_type": "component",
+          "component_id": "bb53298f-72b8-47c8-841e-5c7d3708ab40",
+          "go": "66f398ce-81c1-4a36-bad1-b0f86993a060",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "UseSprintAnimation": false
+      },
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "bb53298f-72b8-47c8-841e-5c7d3708ab40",
+        "BodyGroups": 147,
+        "CreateBoneObjects": false,
+        "Model": "models/weapons/sbox_pistol_usp/v_usp.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "1aa46557-b763-4c3b-9039-bc3b80ee0b8f",
+        "Flags": 0,
+        "Name": "Arms",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "40700113-6ff7-44d8-ae3e-7cb3ea4590a3",
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": {
+              "_type": "component",
+              "component_id": "bb53298f-72b8-47c8-841e-5c7d3708ab40",
+              "go": "66f398ce-81c1-4a36-bad1-b0f86993a060",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "CreateBoneObjects": false,
+            "Model": "models/first_person/first_person_arms_citizen_4fingers.vmdl",
+            "RenderType": "Off",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [
+    "facepunch.v_usp"
+  ],
+  "__version": 1
+}

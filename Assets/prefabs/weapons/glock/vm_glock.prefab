@@ -1,0 +1,65 @@
+{
+  "RootObject": {
+    "__guid": "cfce75d8-0137-4399-9ff1-76a51734e824",
+    "Flags": 0,
+    "Name": "vm_glock",
+    "Tags": "viewmodel",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "GeneralGame.ViewModel",
+        "__guid": "3339c140-97f8-4e35-abe0-387735b58b57",
+        "ModelRenderer": {
+          "_type": "component",
+          "component_id": "f0c6a37e-a655-4d2c-8e77-5c1787665f46",
+          "go": "cfce75d8-0137-4399-9ff1-76a51734e824",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "UseSprintAnimation": false
+      },
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "f0c6a37e-a655-4d2c-8e77-5c1787665f46",
+        "BodyGroups": 11,
+        "CreateBoneObjects": false,
+        "Model": "models/glock/v/glock20_glock.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "ec57cf20-fd51-4d94-8bc1-b0b0623e265b",
+        "Flags": 0,
+        "Name": "Arms",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "5c5882eb-09f1-4857-8b10-e820ded77b60",
+            "BodyGroups": 21,
+            "BoneMergeTarget": {
+              "_type": "component",
+              "component_id": "f0c6a37e-a655-4d2c-8e77-5c1787665f46",
+              "go": "cfce75d8-0137-4399-9ff1-76a51734e824",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "CreateBoneObjects": false,
+            "Model": "models/handes/pmm_ref_hand_red.vmdl",
+            "RenderType": "Off",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -1,0 +1,97 @@
+{
+  "RootObject": {
+    "__guid": "27b70552-2cbe-45ec-b67d-c7de1ea5c756",
+    "Flags": 0,
+    "Name": "usp",
+    "Scale": "1.5,1.5,1.5",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "ff17f134-bd35-42b1-88b6-e4f84f57a4a2",
+        "BodyGroups": 9493,
+        "CreateBoneObjects": false,
+        "Model": "models/weapons/sbox_pistol_usp/w_usp.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "GeneralGame.BaseGun",
+        "__guid": "cca13dbf-deb6-40a3-9e15-ca612fa3bf74",
+        "AimFOVDec": 40,
+        "aimPos": "-2,4.7,1.5",
+        "aimRotation": "0,0,0,0",
+        "AmmoType": "Pistol",
+        "ClipSize": 8,
+        "Damage": 40,
+        "DamageForce": 5,
+        "DefaultAmmo": 60,
+        "DeploySound": "sounds/weapons/weapon_deploy3.sound",
+        "DeployTime": 0.5,
+        "DisplayName": "USP",
+        "EmptyClipSound": "sounds/weapons/empty_submachineguns.sound",
+        "EmptyReloadSoundSequence": "models/glock/glockemptyreload.sndseq",
+        "EmptyReloadTime": 2,
+        "FireRate": 3,
+        "FireSound": "models/glock/glock20_fire1.sound",
+        "HoldType": "Pistol",
+        "HolsterSound": "sounds/weapons/weapon_holster3.sound",
+        "idlePos": "5,0,0",
+        "ImpactEffect": "particles/impact.generic.vpcf",
+        "IsAuto": false,
+        "IsDeployed": false,
+        "MuzzleFlash": "particles/pistol_muzzleflash.vpcf",
+        "Recoil": "-30,0,0",
+        "ReloadSoundSequence": "models/glock/glockreload.sndseq",
+        "ReloadTime": 2,
+        "runPos": "0,0,0",
+        "runRotation": "-0.01513444,0.08583164,0.1729874,0.9810603",
+        "Spread": 0.01,
+        "ViewModelPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/weapons/usp/vm_usp.prefab"
+        }
+      },
+      {
+        "__type": "Sandbox.SphereCollider",
+        "__guid": "7f9e1020-19fd-4418-b4c3-1f9051173cfc",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Radius": 10,
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "967fb550-e874-4049-91bc-deacb084a244",
+        "IsTrigger": false,
+        "Model": "models/weapons/sbox_pistol_usp/w_usp.vmdl",
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "d4851c86-c5e7-4936-a9d3-8b3e1e179528",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [
+    "facepunch.w_usp"
+  ],
+  "__version": 1
+}

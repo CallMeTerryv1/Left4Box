@@ -1,0 +1,56 @@
+{
+  "RootObject": {
+    "__guid": "efbfbb2e-90e5-4fce-a88c-44bccfc01351",
+    "Flags": 0,
+    "Name": "vm_aksu",
+    "Tags": "viewmodel",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "GeneralGame.ViewModel",
+        "__guid": "2ff38759-aa74-4d44-a178-f3a799f98950",
+        "ModelRenderer": {
+          "_type": "component",
+          "component_id": "7a1b6996-feeb-4ff9-829c-c3ba86f556f8",
+          "go": "efbfbb2e-90e5-4fce-a88c-44bccfc01351",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "UseSprintAnimation": false
+      },
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "7a1b6996-feeb-4ff9-829c-c3ba86f556f8",
+        "BodyGroups": 11,
+        "CreateBoneObjects": false,
+        "Model": "models/aksu/v/ak74u_modern_ak74u_mag_ref.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "712a9d27-c75f-4961-9d2f-5ad53515873f",
+        "BodyGroups": 18446744073709551615,
+        "BoneMergeTarget": {
+          "_type": "component",
+          "component_id": "7a1b6996-feeb-4ff9-829c-c3ba86f556f8",
+          "go": "efbfbb2e-90e5-4fce-a88c-44bccfc01351",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "CreateBoneObjects": false,
+        "Model": "models/handes/pmm_ref_hand_red.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -1,0 +1,18 @@
+{
+  "Entries": [
+    {
+      "Sound": "sounds/weapons/shotgun_load_shell_2.sound",
+      "Duration": 1.5
+    },
+    {
+      "Sound": "sounds/weapons/shotgun_load_shell_4.sound",
+      "Duration": 1.5
+    },
+    {
+      "Sound": "sounds/weapons/shotgun_pump_1.sound",
+      "Duration": 0.7
+    }
+  ],
+  "__references": [],
+  "__version": 0
+}

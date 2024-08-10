@@ -1,0 +1,67 @@
+{
+  "RootObject": {
+    "__guid": "d827cbf0-3b8c-4288-80b2-cf6d90c34002",
+    "Flags": 0,
+    "Name": "vm_spaghellim4",
+    "Position": "0,0,38.48081",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "248dca5f-31e9-4f90-8574-795c0d9d620f",
+        "BodyGroups": 75,
+        "CreateBoneObjects": false,
+        "Model": "models/weapons/sbox_shotgun_spaghellim4/v_spaghellim4.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "GeneralGame.ViewModel",
+        "__guid": "ed7211af-865d-4976-bd20-9f4bb713a5b3",
+        "ModelRenderer": {
+          "_type": "component",
+          "component_id": "248dca5f-31e9-4f90-8574-795c0d9d620f",
+          "go": "d827cbf0-3b8c-4288-80b2-cf6d90c34002",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "UseSprintAnimation": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "6f549acc-ab85-4344-a48c-16357ff020b1",
+        "Flags": 0,
+        "Name": "Arms",
+        "Position": "0,0,0",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "f50f8f49-ed72-4ab6-9aa0-46e58cb12e5d",
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": {
+              "_type": "component",
+              "component_id": "248dca5f-31e9-4f90-8574-795c0d9d620f",
+              "go": "d827cbf0-3b8c-4288-80b2-cf6d90c34002",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "CreateBoneObjects": false,
+            "Model": "models/first_person/first_person_arms_citizen_4fingers.vmdl",
+            "RenderType": "Off",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [
+    "facepunch.v_spaghellim4"
+  ],
+  "__version": 1
+}

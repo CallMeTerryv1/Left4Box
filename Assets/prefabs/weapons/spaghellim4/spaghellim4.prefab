@@ -1,0 +1,97 @@
+{
+  "RootObject": {
+    "__guid": "2c1d8aa5-eba4-47d4-a792-0ce9a5565e1d",
+    "Flags": 0,
+    "Name": "spaghellim4",
+    "Scale": "1.5,1.5,1.5",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "b8724c40-8853-482f-89c0-d29f3debcbc5",
+        "BodyGroups": 7,
+        "CreateBoneObjects": false,
+        "Model": "models/weapons/sbox_shotgun_spaghellim4/w_spaghellim4.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "GeneralGame.BaseGun",
+        "__guid": "278ac0c4-42d4-4222-acbf-96fd63a9ae77",
+        "AimFOVDec": 10,
+        "aimPos": "0,0,0",
+        "aimRotation": "0,0,0,0",
+        "AmmoType": "Shotgun",
+        "ClipSize": 6,
+        "Damage": 75,
+        "DamageForce": 15,
+        "DefaultAmmo": 60,
+        "DeploySound": "sounds/weapons/weapon_deploy3.sound",
+        "DeployTime": 0.5,
+        "DisplayName": "SpaghelliM4",
+        "EmptyClipSound": "sounds/weapons/empty_shotguns.sound",
+        "EmptyReloadSoundSequence": "sounds/weapons/shotgun_empty_reload.sndseq",
+        "EmptyReloadTime": 4,
+        "FireRate": 6,
+        "FireSound": "sounds/weapons/shotgun_fire_1.sound",
+        "HoldType": "Shotgun",
+        "HolsterSound": "sounds/weapons/weapon_holster3.sound",
+        "idlePos": "0,0,0",
+        "ImpactEffect": "particles/impact.generic.vpcf",
+        "IsAuto": false,
+        "IsDeployed": false,
+        "MuzzleFlash": "particles/pistol_muzzleflash.vpcf",
+        "Recoil": "30,0,0",
+        "ReloadSoundSequence": "sounds/weapons/shotgun_reload.sndseq",
+        "ReloadTime": 3,
+        "runPos": "0,0,0",
+        "runRotation": "0,0,0,0",
+        "Spread": 0.5,
+        "ViewModelPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/weapons/spaghellim4/vm_spaghellim4.prefab"
+        }
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "8c68863c-ac45-432a-97fa-662ae3846064",
+        "IsTrigger": false,
+        "Model": "models/weapons/sbox_shotgun_spaghellim4/w_spaghellim4.vmdl",
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "13b6ab6b-cfc0-4cd6-bb0f-ac5de53fa533",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "2ca49cf3-992f-48da-9065-9f1cbe7e4dd0",
+        "Center": "1,0,4",
+        "IsTrigger": false,
+        "Scale": "40,7,10",
+        "Static": false
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [
+    "facepunch.w_spaghellim4"
+  ],
+  "__version": 1
+}
