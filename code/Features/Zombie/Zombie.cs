@@ -20,6 +20,7 @@ public sealed class Zombie : Component, IHealthComponent
 
 	private NavMeshAgent agent;
 	private PlayerObject plyObj;
+	private PlayerObject attacker; // Reference To The Attacking Player
 	public TimeSince timeSinceHit = 0;
 
 	protected override void OnAwake()
@@ -64,6 +65,8 @@ public sealed class Zombie : Component, IHealthComponent
 			IHealthComponent damageable;
 			damageable = tr.Component.Components.GetInAncestorsOrSelf<IHealthComponent>();
 
+			attacker = tr.GameObject.Components.Get<PlayerObject>(); // Stores The Attckers Refernce
+
 			damageable.TakeDamage( DamageType.Bullet, 15, tr.EndPosition, tr.Direction * 5, GameObject.Id );
 			
 			animationHelper.Target.Set("b_attack", true);
@@ -97,6 +100,12 @@ public sealed class Zombie : Component, IHealthComponent
 		if ( Health <= 0f )
 		{
 			LifeState = LifeState.Dead;
+
+			if ( attacker != null )
+			{
+				attacker.AddPoints( 100 ); // Award The Player Points
+			}
+
 			var zombie = ZombieRagedol.Clone( this.GameObject.Transform.Position, this.GameObject.Transform.Rotation );
 			zombie.NetworkSpawn();
 			GameObject.Destroy();

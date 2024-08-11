@@ -20,6 +20,7 @@ public partial class PlayerObject : Component, IHealthComponent
 	[Sync, Property] public float MaxHealth { get; private set; } = 100f;
 	[Sync] public LifeState LifeState { get; private set; } = LifeState.Alive;
 	[Sync] public float Health { get; private set; } = 100f;
+	[Sync, Property] public float Points { get; private set; } = 500;
 
 	private RealTimeSince TimeSinceDamaged { get; set; }
 
@@ -44,7 +45,13 @@ public partial class PlayerObject : Component, IHealthComponent
 		LifeState = LifeState.Alive;
 		Health = MaxHealth;
 	}
-	
+
+	public void AddPoints( float amount )
+	{
+		Points += amount;
+		// Can Add Additional UI Logic Here If Needed
+	}
+
 	[Broadcast]
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId )
 	{

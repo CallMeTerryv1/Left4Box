@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>package.library.facepunch.libevents</name>
+    </assembly>
+    <members>
+        <member name="T:Sandbox.Events.EarlyAttribute">
+            <summary>
+            Only valid on <see cref="M:Sandbox.Events.IGameEventHandler`1.OnGameEvent(`0)"/> implementations. Forces this
+            event handler to be invoked before any handlers not marked as early, except if more specific
+            constraints are given (i.e., <see cref="T:Sandbox.Events.BeforeAttribute`1"/>, <see cref="T:Sandbox.Events.AfterAttribute`1"/>).
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.LateAttribute">
+            <summary>
+            Only valid on <see cref="M:Sandbox.Events.IGameEventHandler`1.OnGameEvent(`0)"/> implementations. Forces this
+            event handler to be invoked after any handlers not marked as late, except if more specific
+            constraints are given (i.e., <see cref="T:Sandbox.Events.BeforeAttribute`1"/>, <see cref="T:Sandbox.Events.AfterAttribute`1"/>).
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.BeforeAttribute`1">
+            <summary>
+            Only valid on <see cref="M:Sandbox.Events.IGameEventHandler`1.OnGameEvent(`0)"/> implementations. Forces this
+            event handler to be invoked before any handlers in the specified type.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.AfterAttribute`1">
+            <summary>
+            Only valid on <see cref="M:Sandbox.Events.IGameEventHandler`1.OnGameEvent(`0)"/> implementations. Forces this
+            event handler to be invoked after any handlers in the specified type.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.IGameEvent">
+            <summary>
+            Interface for event payloads that can be listened for by <see cref="T:Sandbox.Events.IGameEventHandler`1"/>s.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.IGameEventHandler`1">
+            <summary>
+            Interface for components that handle game events with a payload of type <see cref="!:T"/>.
+            </summary>
+            <typeparam name="T">Event payload type.</typeparam>
+        </member>
+        <member name="M:Sandbox.Events.IGameEventHandler`1.OnGameEvent(`0)">
+            <summary>
+            Called when an event with payload of type <see cref="!:T"/> is dispatched on a <see cref="T:Sandbox.GameObject"/>
+            that contains this component, including on a descendant.
+            </summary>
+            <param name="eventArgs">Event payload.</param>
+        </member>
+        <member name="T:Sandbox.Events.GameEvent">
+            <summary>
+            Helper for dispatching game events in a scene.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.GameEvent.Dispatch``1(Sandbox.GameObject,``0)">
+            <summary>
+            Notifies all <see cref="T:Sandbox.Events.IGameEventHandler`1"/> components that are within <paramref name="root"/>,
+            with a payload of type <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.GameEventComponent`1">
+            <summary>
+            Base class for components that expose game events to Action Graph.
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.GameEventComponent`1.OnEvent">
+            <summary>
+            Action invoked when the <typeparamref name="T"/> event is dispatched.
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.GameEventComponent`1.NextState">
+            <summary>
+            If this component is within a state machine, optional state to transition
+            to when this event is dispatched.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.SortingHelper">
+            <summary>
+            Generate an ordering based on a set of first-most and last-most items, and
+            individual constraints between pairs of items. All first-most items will be
+            ordered before all last-most items, and any other items will be put in the
+            middle unless forced to be elsewhere by a constraint.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.StateComponent">
+            <summary>
+            Marks a <see cref="T:Sandbox.GameObject"/> as a state in a state machine. There must be a
+            <see cref="T:Sandbox.Events.StateMachineComponent"/> on an ancestor object for this to function.
+            The object containing this state (and all ancestors) will be enabled when the state
+            machine transitions to this state, and will disable again when this state is exited.
+            States may be nested within each other.
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateComponent.StateMachine">
+            <summary>
+            Which state machine does this state belong to?
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateComponent.Parent">
+            <summary>
+            Which state is this nested in, if any?
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateComponent.DefaultNextState">
+            <summary>
+            Transition to this state by default.
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateComponent.DefaultDuration">
+            <summary>
+            If <see cref="P:Sandbox.Events.StateComponent.DefaultNextState"/> is given, transition after this delay in seconds.
+            </summary>
+        </member>
+        <member name="E:Sandbox.Events.StateComponent.OnEnterState">
+            <summary>
+            Event dispatched on the owner when this state is entered.
+            </summary>
+        </member>
+        <member name="E:Sandbox.Events.StateComponent.OnUpdateState">
+            <summary>
+            Event dispatched on the owner while this state is active.
+            </summary>
+        </member>
+        <member name="E:Sandbox.Events.StateComponent.OnLeaveState">
+            <summary>
+            Event dispatched on the owner when this state is exited.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.StateComponent.Transition(Sandbox.Events.StateComponent,System.Single)">
+            <summary>
+            Queue up a transition to the given state. This will occur at the end of
+            a fixed update on the state machine.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.StateComponent.Transition">
+            <summary>
+            Queue up a transition to the default next state.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.EnterStateEvent">
+            <summary>
+            Event dispatched on the owner when a <see cref="T:Sandbox.Events.StateMachineComponent"/> changes state.
+            Only invoked on components on the same object as the new state.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.EnterStateEvent.#ctor(Sandbox.Events.StateComponent)">
+            <summary>
+            Event dispatched on the owner when a <see cref="T:Sandbox.Events.StateMachineComponent"/> changes state.
+            Only invoked on components on the same object as the new state.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.EnterStateEventComponent">
+            <inheritdoc cref="T:Sandbox.Events.EnterStateEvent"/>
+        </member>
+        <member name="T:Sandbox.Events.LeaveStateEvent">
+            <summary>
+            Event dispatched on the owner when a <see cref="T:Sandbox.Events.StateMachineComponent"/> changes state.
+            Only invoked on components on the same object as the old state.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.LeaveStateEvent.#ctor(Sandbox.Events.StateComponent)">
+            <summary>
+            Event dispatched on the owner when a <see cref="T:Sandbox.Events.StateMachineComponent"/> changes state.
+            Only invoked on components on the same object as the old state.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.LeaveStateEventComponent">
+            <inheritdoc cref="T:Sandbox.Events.LeaveStateEvent"/>
+        </member>
+        <member name="T:Sandbox.Events.UpdateStateEvent">
+            <summary>
+            Event dispatched on the owner every fixed update while a <see cref="T:Sandbox.Events.StateComponent"/> is active.
+            Only invoked on components on the same object as the state.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.UpdateStateEvent.#ctor(Sandbox.Events.StateComponent)">
+            <summary>
+            Event dispatched on the owner every fixed update while a <see cref="T:Sandbox.Events.StateComponent"/> is active.
+            Only invoked on components on the same object as the state.
+            </summary>
+        </member>
+        <member name="T:Sandbox.Events.UpdateStateEventComponent">
+            <inheritdoc cref="T:Sandbox.Events.UpdateStateEvent"/>
+        </member>
+        <member name="T:Sandbox.Events.StateMachineComponent">
+            <summary>
+            <para>
+            A state machine containing a set of <see cref="T:Sandbox.Events.StateComponent"/>s. The <see cref="T:Sandbox.GameObject"/> containing
+            the currently active state will be enabled (including its ancestors), and all other objects containing states
+            are disabled.
+            </para>
+            <para>
+            The currently active state is controlled by the owner, and synchronised over the network. When a transition occurs,
+            a <see cref="T:Sandbox.Events.LeaveStateEvent"/> is dispatched on the old state's containing object, followed by a
+            <see cref="T:Sandbox.Events.EnterStateEvent"/> event on the object containing the new state. These events are only dispatched
+            on the owner.
+            </para>
+            </summary>
+        </member>
+        <member name="F:Sandbox.Events.StateMachineComponent.MaxInstantTransitions">
+            <summary>
+            How many instant state transitions in a row until we throw an error?
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateMachineComponent.CurrentState">
+            <summary>
+            Which state is currently active?
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateMachineComponent.NextState">
+            <summary>
+            Which state will we transition to next, at <see cref = "P:Sandbox.Events.StateMachineComponent.NextStateTime"/>?
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateMachineComponent.NextStateTime">
+            <summary>
+            What time will we transition to <see cref = "P:Sandbox.Events.StateMachineComponent.NextState"/>?
+            </summary>
+        </member>
+        <member name="P:Sandbox.Events.StateMachineComponent.States">
+            <summary>
+            All states found on descendant objects.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.StateMachineComponent.Transition(Sandbox.Events.StateComponent,System.Single)">
+            <summary>
+            Queue up a transition to the given state. This will occur at the end of
+            a fixed update on the state machine.
+            </summary>
+        </member>
+        <member name="M:Sandbox.Events.StateMachineComponent.ClearTransition">
+            <summary>
+            Removes any pending transitions, so this state machine will remain in the
+            current state until another transition is queued with <see cref="M:Sandbox.Events.StateMachineComponent.Transition(Sandbox.Events.StateComponent,System.Single)"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

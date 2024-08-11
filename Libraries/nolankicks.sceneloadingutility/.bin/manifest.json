@@ -1,0 +1,10 @@
+[
+  "package.base",
+  "package.library.facepunch.jigglebones",
+  "package.library.facepunch.playercontroller",
+  "package.library.facepunch.libevents",
+  "package.library.nolankicks.sceneloadingutility",
+  "package.library.nolankicks.screenshotlibrary",
+  "package.library.nolankicks.websocket_tools",
+  "package.nolankicks.sceneloadingutility"
+]

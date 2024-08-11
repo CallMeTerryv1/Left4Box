@@ -1,11 +1,10 @@
-﻿Hud
-{
+﻿Hud {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
-	
+
 	.ammo {
 		position: absolute;
 		font-family: Poppins;
@@ -13,12 +12,12 @@
 		color: white;
 		right: 100px;
 		bottom: 100px;
-		
+
 		> .clip {
 			color: orange;
 		}
 	}
-	
+
 	.center {
 		position: absolute;
 		width: 100%;
@@ -26,7 +25,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	
+
 	.crosshair {
 		position: absolute;
 		border-radius: 50%;
@@ -36,12 +35,30 @@
 		width: 4px;
 		height: 4px;
 	}
-	
+
 	&.hitmarker {
 		.crosshair {
 			background-color: red;
 			transition: transform 0.05s ease-in-out;
 			transform: scale( 2 );
+		}
+	}
+
+	.points {
+		position: absolute;
+		font-family: Poppins;
+		font-size: 24px;
+		color: white;
+		left: 20px; // Can Adjust Positition Here
+		top: 20px; // Can Adjust Positition Here
+
+		> .points-label {
+			color: lightgray;
+		}
+
+		> .points-value {
+			color: black; // Can Change The Point Color Here
+			font-weight: bold;
 		}
 	}
 }

@@ -1,0 +1,14 @@
+{
+  "Title": "Fixed Update Input Buffer",
+  "Type": "library",
+  "Org": "null",
+  "Ident": "fuib",
+  "Schema": 1,
+  "IncludeSourceFiles": true,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Metadata": {
+    "CsProjName": ""
+  }
+}
