@@ -4,7 +4,7 @@
   "Org": "elii",
   "Ident": "left4box",
   "Schema": 1,
-  "IncludeSourceFiles": false,
+  "IncludeSourceFiles": true,
   "Resources": "",
   "PackageReferences": [],
   "EditorReferences": null,
