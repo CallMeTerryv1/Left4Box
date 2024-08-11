@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fuib.editor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d10cca89a3733f8570d3e8ca51923d398e71a57")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fd1d024789d60baa8ce52dd28ef38371ad95176")]
 [assembly: System.Reflection.AssemblyProductAttribute("fuib.editor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fuib.editor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
