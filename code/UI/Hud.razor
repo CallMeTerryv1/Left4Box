@@ -48,23 +48,36 @@
     @* Display Player Points *@
     <div class="points">
         <label class="points-label">Points:</label>
-        <label class="points-value">@LocalPlayer.Points</label>
+        <label class="points-value">@Points</label>
     </div>
 
 </root>
 
 @code
 {
-	private PlayerObject LocalPlayer { get; set; }
-	
-	protected override void OnFixedUpdate()
-	{
-		if ( !LocalPlayer.IsValid() )
-		{
-			LocalPlayer = Scene.GetAllComponents<PlayerObject>().FirstOrDefault( p => p.Network.OwnerConnection == Connection.Local );
-		}
-	}
+    private PlayerObject LocalPlayer { get; set; }
+    public int Points { get; private set; } = 500; // Tracks The Points In The Players HUD
 
-	
-	protected override int BuildHash() => HashCode.Combine( RealTime.Now );
+    protected override void OnFixedUpdate()
+    {
+        if ( !LocalPlayer.IsValid() )
+        {
+            LocalPlayer = Scene.GetAllComponents<PlayerObject>().FirstOrDefault( p => p.Network.OwnerConnection == Connection.Local );
+        }
+
+        if (LocalPlayer.IsValid())
+        {
+            Points = LocalPlayer.Points; // Snyc The Players Points With The HUD Dumb Fuck
+            StateHasChanged(); // Force The UI To Update
+        }
+    }
+
+    // Method To Update Points Directly From PlayerObject
+    public void UpdatePoints(int points)
+    {
+        Points = points;
+        StateHasChanged();  // Force The UI To Refresh
+    }
+
+    protected override int BuildHash() => HashCode.Combine( RealTime.Now );
 }

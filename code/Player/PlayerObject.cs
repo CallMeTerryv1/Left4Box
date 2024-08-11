@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Sandbox;
 using Sandbox.Citizen;
+using Sandbox.UI;
 
 namespace GeneralGame;
 
@@ -20,7 +21,8 @@ public partial class PlayerObject : Component, IHealthComponent
 	[Sync, Property] public float MaxHealth { get; private set; } = 100f;
 	[Sync] public LifeState LifeState { get; private set; } = LifeState.Alive;
 	[Sync] public float Health { get; private set; } = 100f;
-	[Sync, Property] public float Points { get; private set; } = 500;
+	[Sync, Property] public int Points { get; private set; } = 500;
+	public static Hud HudInstance { get; set; } // This is a static reference to the Hud instance
 
 	private RealTimeSince TimeSinceDamaged { get; set; }
 
@@ -46,9 +48,12 @@ public partial class PlayerObject : Component, IHealthComponent
 		Health = MaxHealth;
 	}
 
-	public void AddPoints( float amount )
+
+
+	public void AddPoints( int amount )
 	{
 		Points += amount;
+		HudInstance?.UpdatePoints( Points );
 		// Can Add Additional UI Logic Here If Needed
 	}
 
