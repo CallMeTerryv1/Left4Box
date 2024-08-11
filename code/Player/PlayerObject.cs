@@ -22,7 +22,7 @@ public partial class PlayerObject : Component, IHealthComponent
 	[Sync] public LifeState LifeState { get; private set; } = LifeState.Alive;
 	[Sync] public float Health { get; private set; } = 100f;
 	[Sync, Property] public int Points { get; private set; } = 500;
-	public static Hud HudInstance { get; set; } // This is a static reference to the Hud instance
+	public Hud PlayerHud { get; set; }
 
 	private RealTimeSince TimeSinceDamaged { get; set; }
 
@@ -48,13 +48,20 @@ public partial class PlayerObject : Component, IHealthComponent
 		Health = MaxHealth;
 	}
 
+	public override void Spawn()
+	{
+		base.Spawn();
 
+		// Initialize or ensure ScreenPanel is present
+		ScreenPanel = new ScreenPanel();
+		this.AddChild( ScreenPanel ); // Add ScreenPanel to the player object
+	}
 
-	public void AddPoints( int amount )
+	public void AddPointsToPlayer( int amount )
 	{
 		Points += amount;
-		HudInstance?.UpdatePoints( Points );
-		// Can Add Additional UI Logic Here If Needed
+		// Update the HUD Points
+		PlayerHud?.UpdatePlayerPoints( Points );
 	}
 
 	[Broadcast]

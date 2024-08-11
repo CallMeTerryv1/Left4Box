@@ -8,5 +8,7 @@ public interface IHealthComponent
 	public LifeState LifeState { get; }
 	public float MaxHealth { get; }
 	public float Health { get; }
+
+	void Spawn();
 	public void TakeDamage( DamageType type, float damage, Vector3 position, Vector3 force, Guid attackerId );
 }
