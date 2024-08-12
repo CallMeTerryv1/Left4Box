@@ -22,7 +22,11 @@ public partial class PlayerObject : Component, IHealthComponent
 	[Sync] public LifeState LifeState { get; private set; } = LifeState.Alive;
 	[Sync] public float Health { get; private set; } = 100f;
 	[Sync, Property] public int Points { get; private set; } = 500;
+<<<<<<< Updated upstream
 	public Hud PlayerHud { get; set; }
+=======
+	public Hud HudInstance { get; set; } // This is a static reference to the Hud instance
+>>>>>>> Stashed changes
 
 	private RealTimeSince TimeSinceDamaged { get; set; }
 
@@ -48,6 +52,7 @@ public partial class PlayerObject : Component, IHealthComponent
 		Health = MaxHealth;
 	}
 
+<<<<<<< Updated upstream
 	public override void Spawn()
 	{
 		base.Spawn();
@@ -62,6 +67,13 @@ public partial class PlayerObject : Component, IHealthComponent
 		Points += amount;
 		// Update the HUD Points
 		PlayerHud?.UpdatePlayerPoints( Points );
+=======
+	public void AddPoints( int amount )
+	{
+		Points += amount;
+		HudInstance?.UpdatePoints( Points );
+		// Additional UI logic if needed
+>>>>>>> Stashed changes
 	}
 
 	[Broadcast]
