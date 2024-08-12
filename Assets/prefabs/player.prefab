@@ -156,7 +156,6 @@
           "go": "c82accf8-3d09-4aa9-8aee-c1edfaca2829",
           "component_type": "SkinnedModelRenderer"
         },
-        "Points": 500,
         "Ragdoll": {
           "_type": "component",
           "component_id": "ace8ef7a-5ced-4b59-be12-6f69287e38e7",

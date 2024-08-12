@@ -103,7 +103,7 @@ public sealed class Zombie : Component, IHealthComponent
 
 			if ( attacker != null )
 			{
-				attacker.AddPointsToPlayer( 100 ); // Award The Player Points
+				attacker.AddPoints( 100 ); // Award The Player Points
 			}
 
 			var zombie = ZombieRagedol.Clone( this.GameObject.Transform.Position, this.GameObject.Transform.Rotation );
