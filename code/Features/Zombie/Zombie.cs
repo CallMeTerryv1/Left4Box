@@ -12,6 +12,7 @@ public sealed class Zombie : Component, IHealthComponent
 	[Property] public CitizenAnimationHelper animationHelper { get; set; }
 	[Property] public SoundEvent hitSounds { get; set; }
 	[Property] public GameObject ZombieRagedol { get; set; }
+	[Property] public PointsManager PointsManager { get; set; } // Reference to PointsManager
 
 	[Sync, Property] public float MaxHealth { get; private set; } = 100f;
 	[Sync] public LifeState LifeState { get; private set; } = LifeState.Alive;
@@ -101,9 +102,15 @@ public sealed class Zombie : Component, IHealthComponent
 		{
 			LifeState = LifeState.Dead;
 
+			// Use PointsManager to update points
+			var attacker = PointsManager.GetPlayer( attackerId );
 			if ( attacker != null )
 			{
+<<<<<<< Updated upstream
 				attacker.AddPointsToPlayer( 100 ); // Award The Player Points
+=======
+				attacker.AddPoints( 100 ); // Award the player points
+>>>>>>> Stashed changes
 			}
 
 			var zombie = ZombieRagedol.Clone( this.GameObject.Transform.Position, this.GameObject.Transform.Rotation );
