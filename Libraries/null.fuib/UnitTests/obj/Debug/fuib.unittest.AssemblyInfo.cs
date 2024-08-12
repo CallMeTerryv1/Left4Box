@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fuib.unittest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fd1d024789d60baa8ce52dd28ef38371ad95176")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+def0f213413ae3a073532f9364c5a5bb2dc66d3f")]
 [assembly: System.Reflection.AssemblyProductAttribute("fuib.unittest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fuib.unittest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

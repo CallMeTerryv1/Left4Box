@@ -1069,8 +1069,8 @@
     },
     "Base Editor Library/1.0.0": {
       "type": "project",
-      "path": "../../../../../../../Program Files (x86)/Steam/steamapps/common/sbox/addons/tools/Code/Base Editor Library.csproj",
-      "msbuildProject": "../../../../../../../Program Files (x86)/Steam/steamapps/common/sbox/addons/tools/Code/Base Editor Library.csproj"
+      "path": "../../../../../../../build/_work/sbox/sbox/game/addons/tools/Code/Base Editor Library.csproj",
+      "msbuildProject": "../../../../../../../build/_work/sbox/sbox/game/addons/tools/Code/Base Editor Library.csproj"
     },
     "Base Library/1.0.0": {
       "type": "project",

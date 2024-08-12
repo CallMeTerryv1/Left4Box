@@ -12,7 +12,6 @@ public sealed class Zombie : Component, IHealthComponent
 	[Property] public CitizenAnimationHelper animationHelper { get; set; }
 	[Property] public SoundEvent hitSounds { get; set; }
 	[Property] public GameObject ZombieRagedol { get; set; }
-	[Property] public PointsManager PointsManager { get; set; } // Reference to PointsManager
 
 	[Sync, Property] public float MaxHealth { get; private set; } = 100f;
 	[Sync] public LifeState LifeState { get; private set; } = LifeState.Alive;
@@ -28,7 +27,7 @@ public sealed class Zombie : Component, IHealthComponent
 	{
 		agent = Components.Get<NavMeshAgent>();
 		plyObj = Scene.GetAllComponents<PlayerObject>().FirstOrDefault();
-		
+
 	}
 	protected override void OnUpdate()
 	{
@@ -36,32 +35,32 @@ public sealed class Zombie : Component, IHealthComponent
 		animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Run;
 		var target = plyObj.Transform.Position;
 		plyObj = Scene.GetAllComponents<PlayerObject>().FirstOrDefault();
-		
+
 		UpdateAnimtions();
-		if (Vector3.DistanceBetween(target, GameObject.Transform.Position ) < 80f)
+		if ( Vector3.DistanceBetween( target, GameObject.Transform.Position ) < 80f )
 		{
 			agent.Stop();
 			NormalTrace();
 		}
 		else
 		{
-			agent.MoveTo(plyObj.Transform.Position);
+			agent.MoveTo( plyObj.Transform.Position );
 		}
 	}
-	
+
 
 	void UpdateAnimtions()
 	{
-		animationHelper.WithWishVelocity(agent.WishVelocity);
-		animationHelper.WithVelocity(agent.Velocity);
-		var targetRot = Rotation.LookAt(plyObj.GameObject.Transform.Position.WithZ(Transform.Position.z) - body.Transform.Position);
-		body.Transform.Rotation = Rotation.Slerp(body.Transform.Rotation, targetRot, Time.Delta * 5.0f);
+		animationHelper.WithWishVelocity( agent.WishVelocity );
+		animationHelper.WithVelocity( agent.Velocity );
+		var targetRot = Rotation.LookAt( plyObj.GameObject.Transform.Position.WithZ( Transform.Position.z ) - body.Transform.Position );
+		body.Transform.Rotation = Rotation.Slerp( body.Transform.Rotation, targetRot, Time.Delta * 5.0f );
 	}
 	void NormalTrace()
 	{
-		var tr = Scene.Trace.Ray(body.Transform.Position, body.Transform.Position + body.Transform.Rotation.Forward * 100).Run();
+		var tr = Scene.Trace.Ray( body.Transform.Position, body.Transform.Position + body.Transform.Rotation.Forward * 100 ).Run();
 
-		if (tr.Hit && tr.GameObject.Tags.Has("player") && timeSinceHit > 1.0f && GameObject is not null)
+		if ( tr.Hit && tr.GameObject.Tags.Has( "player" ) && timeSinceHit > 1.0f && GameObject is not null )
 		{
 			IHealthComponent damageable;
 			damageable = tr.Component.Components.GetInAncestorsOrSelf<IHealthComponent>();
@@ -69,8 +68,8 @@ public sealed class Zombie : Component, IHealthComponent
 			attacker = tr.GameObject.Components.Get<PlayerObject>(); // Stores The Attckers Refernce
 
 			damageable.TakeDamage( DamageType.Bullet, 15, tr.EndPosition, tr.Direction * 5, GameObject.Id );
-			
-			animationHelper.Target.Set("b_attack", true);
+
+			animationHelper.Target.Set( "b_attack", true );
 			timeSinceHit = 0;
 
 			Sound.Play( hitSounds, Transform.Position );
@@ -102,15 +101,9 @@ public sealed class Zombie : Component, IHealthComponent
 		{
 			LifeState = LifeState.Dead;
 
-			// Use PointsManager to update points
-			var attacker = PointsManager.GetPlayer( attackerId );
 			if ( attacker != null )
 			{
-<<<<<<< Updated upstream
-				attacker.AddPointsToPlayer( 100 ); // Award The Player Points
-=======
-				attacker.AddPoints( 100 ); // Award the player points
->>>>>>> Stashed changes
+				attacker.AddPoints( 100 ); // Award The Player Points
 			}
 
 			var zombie = ZombieRagedol.Clone( this.GameObject.Transform.Position, this.GameObject.Transform.Rotation );
